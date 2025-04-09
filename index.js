@@ -16,30 +16,39 @@ let listBooks = [
     }
 ];
 
-while (running){
+while (running) {
     const choice = prompt(`
     Book Tracker
     1. Add Book
     2. List Books
     3. Mark Book as Read
-    4. Exit
+    4. List unread books
+    5. Exit
     Enter your choice: `);
 
     switch (choice) {
         case 1: addBook();
+        prompt("Enter the title and author of a book to add:", "");
+        functions.addBook();
         break;
 
         case 2: listBooks();   
-        console.log listBooks(title);
+        console.log(listBooks);
         break;
         
         case 3: 
         prompt("Enter the title of the book to mark as read:","");
-        markAsRead(title);   
+        functions.markAsRead(title);   
         break;
 
-        case 4:  running = false;
-        alert("goodbye!");
+        case 4:
+        functions.BooksUnread();
+
+        case 5:
+        exit ();
+        if (running = false);
+        clear();
+        alert("Thank you for using my booklist!");
 
         default:
         console.log("Invalid choice.");
@@ -49,41 +58,35 @@ while (running){
 
 const functions = {
 
-    listBooks(){
-    find alle böckers titlar
-    while books = listBooks.filter(car => car.color === "red");
-        return title
-        console.log(listBooks);
-        listBooks = () => {
-            this.books.forEach(book => {
-                console.log(`Title: ${book.title}}`);
-            });
-    },
+    addBook(listBooks) {
+        listBooks.push({
+            Title: "",
+            Author:"",
+            isRead: "false"
+        });
+        },
 
-    addBook(){
-        push(Title, Author, isRead) 
-        addBook = (book) => this.books.push(book);
-       
-
-       
-    },
-    markAsRead(){
-    find entered title - change isRead to true
-    },
-
-    exit() {
-        console.clear();
-        console.log("Thank you for using my booklist!");
+    addNewBook = (title, author) {
+            const newTitle = prompt("Enter a title for the book");
+            const newAuthor = prompt("Enter an author for the book");
         }
+        };
+          
+    markAsRead = (title, author) => {
+         const newTitle = prompt("Enter a title for the book you have read");
+        
+           //  leta igenom lista, matcha med titel, ändra if false till true. Behöver hjälp till denna.
 
-        // List the unread books in the library
-library.listBooks();
+         default:
+            console.log("No book match.");
+        };
 
-    unreadBooks = isRead => books.filter(book => listBooks.isRead.includes(false));
-    console.log(unreadBooks("Unread books:"));
+       
+    BooksUnread(listBooks) {
+            return listBooks.filter(listBooks => listBooks.isRead === false);
+          }
 
-    filter - books that are isRead == 0 false
-    }
+ 
+
 
    
-    }
