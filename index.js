@@ -75,7 +75,11 @@ const functions = {
     markAsRead = (title, author) => {
          const newTitle = prompt("Enter a title for the book you have read");
         
+         const foundBook = listBooks.find(listBooks => listBooks.title === title);
+        
+
            //  leta igenom lista, matcha med titel, ändra if false till true. Behöver hjälp till denna.
+           
 
          default:
             console.log("No book match.");
@@ -85,8 +89,3 @@ const functions = {
     BooksUnread(listBooks) {
             return listBooks.filter(listBooks => listBooks.isRead === false);
           }
-
- 
-
-
-   
