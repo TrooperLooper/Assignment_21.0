@@ -1,4 +1,5 @@
-let listBooks = [ 
+let running = true;
+let books = [ 
     {
         title: 'Animal Farm',
         author: 'Orson Welles',
@@ -27,24 +28,21 @@ while (running) {
     Enter your choice: `);
 
     switch (choice) {
-        case 1: addBook();
-        prompt("Enter the title and author of a book to add:", "");
-        functions.addBook();
+        case "1": 
+        addBook();
         break;
 
-        case 2: listBooks();   
-        console.log(listBooks);
+        case "2": listBooks();   
         break;
         
-        case 3: 
-        prompt("Enter the title of the book to mark as read:","");
-        functions.markAsRead(title);   
+        case "3": 
+        markAsRead();   
         break;
 
-        case 4:
-        functions.BooksUnread();
+        case "4":
+        BooksUnread();
 
-        case 5:
+        case "5":
         exit ();
         if (running = false);
         clear();
@@ -56,36 +54,28 @@ while (running) {
 
 }
 
-const functions = {
-
-    addBook(listBooks) {
-        listBooks.push({
-            Title: "",
-            Author:"",
-            isRead: "false"
+   function  addBook() {
+        const newTitle = prompt("Enter a title for the book");
+        const newAuthor = prompt("Enter an author for the book");
+        books.push({
+            title: newTitle,
+            author: newAuthor,
+            isRead : false
         });
-        },
-
-    addNewBook = (title, author) {
-            const newTitle = prompt("Enter a title for the book");
-            const newAuthor = prompt("Enter an author for the book");
         }
-        };
-          
-    markAsRead = (title, author) => {
-         const newTitle = prompt("Enter a title for the book you have read");
-        
-         const foundBook = listBooks.find(listBooks => listBooks.title === title);
-        
+        console.log(books);
 
-           //  leta igenom lista, matcha med titel, ändra if false till true. Behöver hjälp till denna.
+          
+    function markAsRead() {
+         const title = prompt("Enter a title for the book you have read");
+         const foundBook = books.find(book => book.title === title);
+
+         if (foundBook) {
+                   foundBook. isRead = true;
+                   alert("Books is read");
+               } else {
+                   console.log("No book match")
+               }
            
 
-         default:
-            console.log("No book match.");
-        };
-
-       
-    BooksUnread(listBooks) {
-            return listBooks.filter(listBooks => listBooks.isRead === false);
-          }
+           };
