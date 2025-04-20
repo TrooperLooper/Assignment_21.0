@@ -32,7 +32,8 @@ while (running) {
         addBook();
         break;
 
-        case "2": listBooks();   
+        case "2": 
+        listBooks();   
         break;
         
         case "3": 
@@ -40,18 +41,25 @@ while (running) {
         break;
 
         case "4":
-        BooksUnread();
+        booksUnread();
+        break;
 
         case "5":
-        exit ();
-        if (running = false);
-        clear();
+        running = false;
         alert("Thank you for using my booklist!");
+        break;
 
         default:
         console.log("Invalid choice.");
     }
 
+}
+
+
+function listBooks() {
+    books.forEach(function(book) {
+        console.log(book.title + ", by " + book.author);
+    });
 }
 
    function  addBook() {
@@ -62,20 +70,38 @@ while (running) {
             author: newAuthor,
             isRead : false
         });
-        }
         console.log(books);
+        }
+        
+ 
 
-          
+    function booksUnread() {
+        const unreadBooks = books.filter(book => book.isRead === false);
+        unreadBooks.forEach(function(book) {
+            console.log(book.title + ",by " + book.author);
+        });     
+    }
+
     function markAsRead() {
          const title = prompt("Enter a title for the book you have read");
-         const foundBook = books.find(book => book.title === title);
+         const foundBook = books.find(books => books.title === title);
 
          if (foundBook) {
-                   foundBook. isRead = true;
+                   foundBook.isRead = true;
                    alert("Books is read");
                } else {
                    console.log("No book match")
                }
-           
-
+        
            };
+
+           /*
+           function listBooks() {
+    books.forEach(title, author) = books;
+    console.log(books);
+
+const unreadBooks = booksUnread(books)
+listBooks(unreadBooks); // show the unread books
+break;
+
+}*/
